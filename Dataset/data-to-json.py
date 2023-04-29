@@ -4,6 +4,7 @@ import pandas as pd
 import numpy as np
 import torch
 import os
+from tqdm import tqdm
 
 path = "CatA_Simple"
 
@@ -13,7 +14,7 @@ data_set = {'input': [],
             'output': [],
             'operation': [],
             'kernel': []}
-for file in os.listdir(folder):
+for file in tqdm(os.listdir(folder)):
     filename = os.fsdecode(file)
     if filename.endswith(('.json')):
         with open('{}/{}'.format(path, filename), encoding='utf-8') as inputfile:
